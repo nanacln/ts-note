@@ -31,7 +31,7 @@
         run() {
             console.log(`${this.name}在跑~~~`);
         }
-
+        // 重写父类的sayHello方法
         sayHello() {
             console.log('汪汪汪汪！');
         }

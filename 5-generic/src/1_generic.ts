@@ -41,7 +41,9 @@ function fn3<T extends Inter>(a: T): number {
     return a.length;
 }
 
-fn3({length: 10,age:23});
+fn3({ length: 10, age: 23 });
+fn3('hello');
+fn3([1, 2, 3]);
 
 /* Ⅳ.类中使用泛型 */
 class MyClass<T> {
@@ -78,6 +80,7 @@ interface MyType {
 // Making all properties optional
 type PartialMyType = Partial<MyType>;
 
+
 // Making all properties required again
 type RequiredPartialMyType = Required<PartialMyType>;
 
@@ -90,3 +93,23 @@ let myType: ReadonlyMyType = {
     prop3: true
 };
 myType.prop1 = 'World'; // Error: Cannot assign to 'prop1' because it is a read-only property.
+
+// keyof 获取对象类型的所有键名的联合类型
+type PartialMyType2<T extends object> = {
+    [Key in keyof T]?: T[Key]
+}
+type B2 = PartialMyType2<MyType>
+// 以上可以实现的就是Partial的用法
+
+let obj = {
+    name: '小明',
+    age: 12,
+    girl: false,
+    hello:()=>'hihi'
+}
+type Key = keyof typeof obj
+//获取对象上的属性值 约束访问对象上的key，若访问不存在的属性grade则报错
+function ob<T extends object, K extends keyof T>(obj: T, key: K) { 
+    return obj[key]
+}
+
