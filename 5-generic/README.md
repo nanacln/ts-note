@@ -98,6 +98,15 @@ function test<T extends MyInter>(arg: T): number{
 
 使用T extends MyInter表示泛型T必须是MyInter的子类；
 
+
+### interface 和type也能使用泛型
+```typescript
+type A<T> = string | number | T
+
+interface B<T> {
+    name: T
+}
+```
 ### 泛类约束 
 #### Patrial<T>  
 快速把某个接口类型中定义的属性变成可选

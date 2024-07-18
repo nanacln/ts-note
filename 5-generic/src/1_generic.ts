@@ -64,4 +64,29 @@ let a1: A<boolean> = true
 interface B<T> {
     name: T
 }
-let b: B<string> = {name:'hello'}
+let b: B<string> = { name: 'hello' }
+
+// 泛类约束
+
+// Original type
+interface MyType {
+    prop1: string;
+    prop2: number;
+    prop3: boolean;
+}
+
+// Making all properties optional
+type PartialMyType = Partial<MyType>;
+
+// Making all properties required again
+type RequiredPartialMyType = Required<PartialMyType>;
+
+// Making all properties readonly
+type ReadonlyMyType = Readonly<RequiredPartialMyType>;
+
+let myType: ReadonlyMyType = {
+    prop1: 'Hello',
+    prop2: 123,
+    prop3: true
+};
+myType.prop1 = 'World'; // Error: Cannot assign to 'prop1' because it is a read-only property.
