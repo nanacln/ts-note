@@ -77,15 +77,16 @@ interface MyType {
     prop3: boolean;
 }
 
-// Making all properties optional
+// 所有属性可选
 type PartialMyType = Partial<MyType>;
 
 
-// Making all properties required again
+// 所有属性比填
 type RequiredPartialMyType = Required<PartialMyType>;
 
-// Making all properties readonly
+// 所有属性只读
 type ReadonlyMyType = Readonly<RequiredPartialMyType>;
+
 
 let myType: ReadonlyMyType = {
     prop1: 'Hello',
@@ -93,6 +94,15 @@ let myType: ReadonlyMyType = {
     prop3: true
 };
 myType.prop1 = 'World'; // Error: Cannot assign to 'prop1' because it is a read-only property.
+
+// Omit 工具类型的功能是返回去除指定的键值之后返回的新类型
+interface Info {
+    name: string
+    age: number
+    address: string
+}
+// 排除address 因此只使用 name  和age 字段 
+type MyInfo = Omit<Info, 'address'> 
 
 // keyof 获取对象类型的所有键名的联合类型
 type PartialMyType2<T extends object> = {
