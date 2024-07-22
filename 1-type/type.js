@@ -79,7 +79,16 @@ v2 = null; // 报错 非严格模式下不报错
 // 以函数为例，表示没有返回值的函数：
 function fn() {
 }
-/* 6.4 undefined */
+/* 6.3.2 Null和Undefined  */
+// 1.如果开启严格模式不能吧其他模式的值设置为null 和 undfined
+// 2.与 void 的区别是，undefined 和 null 是所有类型的子类型。也就是说
+// undefined 类型的变量，可以赋值给 number 类型的变量
+// 举个例子： let num: number = undefined，如果你在tsconfig.json 开启了严格模式'strict'那这样会报错
+let u: undefined
+u = undefined //  只能是undefined类型
+let n: null
+n = null // 只能是null 类型
+/* 6.4 never */
 // never 表示永远不会返回结果（连undefined都没有）[较少使用]
 // 下面的函数没有返回值（连undefined都没有），仅抛出error
 function fn2() {

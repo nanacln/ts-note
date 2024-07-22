@@ -5,8 +5,8 @@
     "strict": true,
     "outDir": "./dist",
     "noEmitOnError": true,
-    // "noEmit": true,
-    // "allowImportingTsExtensions": true
+    "noEmit": true,
+    "allowImportingTsExtensions": true
   },
   "include": ["./src/**/*"]
 }
