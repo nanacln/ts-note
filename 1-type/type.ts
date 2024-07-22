@@ -14,11 +14,11 @@ b = 'hello';
 // b = 123;
 
 // 声明变量的同时直接进行赋值
-// let c: boolean = false;
+let c: boolean = false;
 
 // 如果变量的声明和赋值是同时进行的，TS可以自动对变量进行类型检测
-let c = false;
-c = true;
+let c1 = false;
+c1 = true;
 /* 2.函数声明 */
 
 // JS中的函数是不考虑参数的类型和个数的
